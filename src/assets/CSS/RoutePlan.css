@@ -31,3 +31,9 @@ label {
 #map {
 	height: 50%;
 }
+
+@media (min-width: 650px) {
+	#RoutePlannerForm {
+		width: 487.5px;
+	}
+}
