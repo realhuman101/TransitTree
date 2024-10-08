@@ -17,8 +17,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/TransitTree' element={<Home/>}/>
         <Route path='/TransitTree/RoutePlan' element={<RoutePlan/>}/>
       </Routes>
-    </BrowserRouter>
 
     <Footer/>
+    </BrowserRouter>
   </StrictMode>,
 )
