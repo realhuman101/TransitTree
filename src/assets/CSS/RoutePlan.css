@@ -1,3 +1,13 @@
+#routePlan {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	height: 210px;
+	position: relative;
+}
+
 #RoutePlannerForm {
 	display: flex;
 	flex-direction: column;
