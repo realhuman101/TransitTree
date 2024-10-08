@@ -1,0 +1,23 @@
+#RoutePlannerForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	width: 75%;
+	height: 100px;
+	padding: 0;
+}
+
+input[type=text] {
+	border: none;
+	border-radius: 10px;
+	padding: 7px;
+	margin-bottom: 10px;
+}
+
+label {
+	font-size: 15px;
+}
+
+#map {
+	height: 50%;
+}

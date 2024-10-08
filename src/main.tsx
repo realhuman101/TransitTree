@@ -9,6 +9,7 @@ import './assets/CSS/index.css'
 
 // Components
 import Footer from './assets/components/Footer.tsx'
+import Loading from './assets/components/Loading.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
       </Routes>
 
     <Footer/>
+    <Loading/>
     </BrowserRouter>
   </StrictMode>,
 )

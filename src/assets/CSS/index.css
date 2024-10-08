@@ -12,7 +12,8 @@ body {
 }
 
 /* General */
-button {
+button,
+input[type=submit] {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -25,7 +26,10 @@ button {
 
 button:hover,
 button:focus,
-button:focus-visible {
+button:focus-visible,
+input[type=submit]:hover,
+input[type=submit]:focus,
+input[type=submit]:focus-visible {
   opacity: 0.7;
   cursor: pointer;
 }
@@ -39,6 +43,7 @@ button:focus-visible {
   height: 100%;
   background-color: #688e72;
   z-index: 9;
+  animation: slideUp 1100ms ease-in-out 170ms forwards;
 }
 
 /* Footer */
@@ -137,6 +142,16 @@ a:focus-visible #homeIcon {
     top:0;
   }
   to {
+    top: -100vh;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    top:0;
+  }
+  to {
     top: 100vh;
   }
 }
+
