@@ -10,7 +10,7 @@ function Home() {
       </div>
       <img src={Tree} width='100px'/>
       <button onClick={() => {
-        
+        window.location.href = '/TransitTree/RoutePlan/'
       }}>Plant Tree</button>
     </>
   )

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Pages
 import Home from './pages/Home.tsx'
+import RoutePlan from './pages/RoutePlan.tsx'
 import './assets/CSS/index.css'
 
 // Components
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <Routes>
         <Route path='/TransitTree' element={<Home/>}/>
+        <Route path='/TransitTree/RoutePlan' element={<RoutePlan/>}/>
       </Routes>
     </BrowserRouter>
 
