@@ -1,5 +1,32 @@
 #root {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: space-evenly;
 	align-items: center;
+	padding: 10px;
+	height: calc(100% - 50px);
+}
+
+#CO2text {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#CO2text h1 {
+	text-align: center;
+	margin: 0;
+	color: #202020;
+}
+
+#CO2tons {
+	font-weight: 700 !important;
+	font-size: 50px;
+	color: #000;
+}
+
+button {
+	font-size: 17px;
+	font-weight: 700 !important;
 }
