@@ -1,6 +1,7 @@
-
 import { useState } from 'react';
-import '../assets/CSS/RoutePlan.css'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import '../assets/CSS/RoutePlan.css';
 
 function RoutePlan() {
 	const [routePlanned, setRoutePlanned] = useState(false);
@@ -24,7 +25,16 @@ function RoutePlan() {
 			<div id="map">
 
 			</div>
-			{routePlanned && <button>Use Route</button>}
+			{routePlanned && <button onClick={() => {
+				setRoutePlanned(false);
+				withReactContent(Swal).fire({
+					title: "Another tree has been planted!",
+					text: "Successfully prevented around 1,342 grams of CO2 being emitted into the environment!",
+					icon: "success",
+					color: "#020202",
+					background: "#e9ecdd"
+				})
+			}}>Use Route</button>}
 		</>
 	)
 }
