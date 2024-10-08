@@ -1,9 +1,9 @@
-import Button from '../assets/components/Button.tsx'
+import '../assets/CSS/Home.css'
 
 function Home() {
   return (
     <>
-      <Button text="Test"/>
+      <button>Test</button>
     </>
   )
 }
