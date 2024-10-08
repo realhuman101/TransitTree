@@ -1,6 +1,7 @@
 /* Main */
 html,
 body {
+  height: 100%;
   margin: 0;
   background-color: #e9ecdd;
 }
@@ -42,6 +43,8 @@ button:focus-visible {
   color: white;
   margin-top: 10px;
   text-align: center;
+  position: absolute;
+  bottom: 0;
 }
 
 #footer p {
@@ -96,7 +99,7 @@ button:focus-visible {
   }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 380px) {
   #footerCredit {
     display: none !important;
   }
