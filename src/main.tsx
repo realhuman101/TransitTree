@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 
 // Pages
 import Home from './pages/Home.tsx'
@@ -13,14 +13,14 @@ import Loading from './assets/components/Loading.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter basename='/TransitTree'>
       <Routes>
-        <Route path='/TransitTree' element={<Home/>}/>
-        <Route path='/TransitTree/RoutePlan' element={<RoutePlan/>}/>
+        <Route index element={<Home/>}/>
+        <Route path='/RoutePlan' element={<RoutePlan/>}/>
       </Routes>
 
     <Footer/>
     <Loading/>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 )

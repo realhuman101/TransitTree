@@ -12,7 +12,7 @@ function Home() {
       <h3>5 Trees Planted</h3>
       <div id="buttons">
         <button onClick={() => {
-          window.location.href = '/TransitTree/RoutePlan/'
+          window.location.href = '#/TransitTree/RoutePlan/'
         }}>Plan New Route</button>
         <button>View Forest</button>
       </div>
