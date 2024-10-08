@@ -30,3 +30,10 @@ button {
 	font-size: 17px;
 	font-weight: 700 !important;
 }
+
+#buttons {
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+	justify-content: space-between;
+}

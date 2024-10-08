@@ -9,9 +9,13 @@ function Home() {
         <h1>of Carbon Emissions Reduced</h1>
       </div>
       <img src={Tree} width='100px'/>
-      <button onClick={() => {
-        window.location.href = '/TransitTree/RoutePlan/'
-      }}>Plant Tree</button>
+      <h3>5 Trees Planted</h3>
+      <div id="buttons">
+        <button onClick={() => {
+          window.location.href = '/TransitTree/RoutePlan/'
+        }}>Plan New Route</button>
+        <button>View Forest</button>
+      </div>
     </>
   )
 }
