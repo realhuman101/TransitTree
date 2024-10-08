@@ -9,7 +9,9 @@ function Home() {
         <h1>of Carbon Emissions Reduced</h1>
       </div>
       <img src={Tree} width='100px'/>
-      <button>Plant Tree</button>
+      <button onClick={() => {
+        
+      }}>Plant Tree</button>
     </>
   )
 }

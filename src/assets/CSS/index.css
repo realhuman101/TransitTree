@@ -18,7 +18,7 @@ button {
   padding: 10px 20px;
   transition: opacity 250ms ease-in-out;
   opacity: 1;
-  background-color: #678e72;
+  background-color: #688e72;
   color: white;
   font-weight: 500;
 }
@@ -30,6 +30,17 @@ button:focus-visible {
   cursor: pointer;
 }
 
+/* Loading */
+#loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #688e72;
+  z-index: 9;
+}
+
 /* Footer */
 #footer {
   width: 100%;
@@ -39,7 +50,7 @@ button:focus-visible {
   align-content: center;
   padding: 10px 15px;
   height: 50px;
-  background-color: #678e72;
+  background-color: #688e72;
   color: white;
   margin-top: 10px;
   text-align: center;
@@ -106,5 +117,15 @@ button:focus-visible {
 
   #footer {
     justify-content: center;
+  }
+}
+
+/* Keyframes */
+@keyframes slideUp {
+  from {
+    top:0;
+  }
+  to {
+    top: 100vh;
   }
 }
