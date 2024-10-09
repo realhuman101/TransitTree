@@ -17,10 +17,6 @@ body {
   height: 100%;
 }
 
-#root * {
-  margin: auto;
-}
-
 /* General */
 button,
 input[type=submit] {
@@ -31,7 +27,8 @@ input[type=submit] {
   opacity: 1;
   background-color: #688e72;
   color: white;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 15px;
   width: fit-content;
 }
 

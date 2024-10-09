@@ -7,7 +7,7 @@ function RoutePlan() {
 	const [routePlanned, setRoutePlanned] = useState(false);
 
 	return (
-		<>
+		<div id={styles.routePlanFull}>
 			<div id={styles.routePlan}>
 				<h1>Plan Your Route</h1>
 				<form id={styles.RoutePlannerForm} onSubmit={(e) => { 
@@ -15,11 +15,11 @@ function RoutePlan() {
 						setRoutePlanned(true);
 					}}>
 
-					<label>From</label>
-					<input type="text" id={styles.routePlanFrom} placeholder='Starting Location'/>
-					<label>To</label>
-					<input type="text" id={styles.routePlanTo} placeholder='Destination'/>
-					<input type="submit" value="Find Fastest Route" />
+					<label className={styles.label}>From</label>
+					<input type="text" className={styles.input} id={styles.routePlanFrom} placeholder='Starting Location'/>
+					<label className={styles.label}>To</label>
+					<input type="text" className={styles.input} id={styles.routePlanTo} placeholder='Destination'/>
+					<input id={styles.submit} type="submit" value="Find Fastest Route" />
 				</form>
 			</div>
 			<div id={styles.map}>
@@ -35,7 +35,7 @@ function RoutePlan() {
 					background: "#e9ecdd"
 				})
 			}}>Use Route</button>}
-		</>
+		</div>
 	)
 }
 
