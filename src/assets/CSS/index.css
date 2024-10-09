@@ -137,6 +137,21 @@ a:focus-visible #homeIcon {
   }
 }
 
+/* Wallet */
+#wallet {
+  display: absolute;
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #020202;
+  font-weight: 500;
+  margin: 10px;
+  padding: 2px;
+  top: 0;
+  right: 0;
+}
+
 /* Keyframes */
 @keyframes slideUp {
   0% {
