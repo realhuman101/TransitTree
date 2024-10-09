@@ -24,13 +24,15 @@ function ViewForest() {
 	}
 
 	return (
-		<>
-			<div id={styles.forest}>
-				{forest}
+		<div id={styles.container}>
+			<div id={styles.viewForest}>
+				<div id={styles.forest}>
+					{forest}
+				</div>
+				<button id={styles.shop} onClick={() => switchPage('Shop')}>Buy Items</button>
+				<Wallet/>
 			</div>
-			<button id={styles.shop} onClick={() => switchPage('Shop')}>Buy Items</button>
-			<Wallet/>
-		</>
+		</div>
 	)
 }
 

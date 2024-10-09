@@ -5,3 +5,20 @@
 	width: 100%;
 	justify-content: space-evenly;
 }
+
+#viewForest {
+	margin: auto 0;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	align-items: center;
+	height: fit-content;
+	gap: 20px;
+}
+
+#container {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
