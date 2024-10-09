@@ -39,3 +39,7 @@ button {
 	height: calc(100% - 50px);
 	margin: auto;
 }
+
+#homepage * {
+	margin: auto;
+}
