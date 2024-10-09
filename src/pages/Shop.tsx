@@ -1,4 +1,5 @@
 import '../assets/CSS/Shop.css'
+import Wallet from '../assets/components/Wallet'
 
 import Coin from "../assets/images/Coin.svg"
 import Tree from "../assets/images/Tree.svg"
@@ -98,10 +99,11 @@ const shopItems = [
 function Shop() {
 	const items = []
 	for (const item of shopItems)
-		items.push(<div className='shopItem' data-owned={item.Owned}><img className='itemIcon' src={item.Icon}/><div className='costBox'><img className='coin' src={Coin}/><p>{item.Cost}</p></div></div>)
+		items.push(<div className='shopItem'><img className='itemIcon' src={item.Icon}/><div className='costBox'><img className='coin' src={Coin}/><p>{item.Cost}</p></div>{item.Owned && <p className='owned'>Owned</p>}</div>)
 
 	return (
 		<>
+			<Wallet/>
 			<h1>Shop</h1>
 			<div id="shop">
 				{items}
