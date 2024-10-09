@@ -174,27 +174,41 @@ a:focus-visible #homeIcon {
 /* Keyframes */
 @keyframes slideUp {
   0% {
+    display: block;
     top:0;
+    opacity: 1;
+    z-index: 9;
   }
   99% {
     top: -100vh;
+    opacity: 1;
+    z-index: 9;
   }
   100% {
     top: -100vh;
     display: none;
+    opacity: 0;
+    z-index: -1;
   }
 }
 
 @keyframes slideDown {
   0% {
+    display: block;
+    opacity: 1;
     top:0;
+    z-index: 9;
   }
   99% {
     top: 100vh;
+    opacity: 1;
+    z-index: 9;
   }
   100% {
     top: 100vh;
     display: none;
+    opacity: 0;
+    z-index: -1;
   }
 }
 
