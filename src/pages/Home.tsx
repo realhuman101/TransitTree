@@ -25,7 +25,10 @@ function Home() {
         <button onClick={() => {
           window.location.href = '#/TransitTree/RoutePlan/'
         }}>Plan New Route</button>
-        <button>View Forest</button>
+        
+        <button onClick={() => {
+          window.location.href = '#/TransitTree/ViewForest/'
+        }}>View Forest</button>
       </div>
     </>
   )
