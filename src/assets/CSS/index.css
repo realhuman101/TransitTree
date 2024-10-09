@@ -168,6 +168,7 @@ a:focus-visible #homeIcon {
   position: absolute;
   right: 0;
   margin: 10px;
+  font-weight: 600;
 }
 
 /* Keyframes */
