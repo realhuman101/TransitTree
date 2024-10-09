@@ -138,20 +138,26 @@ a:focus-visible #homeIcon {
 
 /* Keyframes */
 @keyframes slideUp {
-  from {
+  0% {
     top:0;
   }
-  to {
+  99% {
     top: -100vh;
+  }
+  100% {
+    display: none;
   }
 }
 
 @keyframes slideDown {
-  from {
+  0% {
     top:0;
   }
-  to {
+  99% {
     top: 100vh;
+  }
+  100% {
+    display: none;
   }
 }
 
