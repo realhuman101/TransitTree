@@ -4,7 +4,6 @@ body {
   height: 100%;
   margin: 0;
   background-color: #e9ecdd;
-  padding-bottom: 0;
 }
 
 * {
@@ -13,7 +12,13 @@ body {
 }
 
 #root {
+  padding: 10px;
   padding-bottom: 0;
+  height: 100%;
+}
+
+#root * {
+  margin: auto;
 }
 
 /* General */
@@ -27,6 +32,7 @@ input[type=submit] {
   background-color: #688e72;
   color: white;
   font-weight: 500;
+  width: fit-content;
 }
 
 button:hover,
@@ -63,10 +69,17 @@ input[type=submit]:focus-visible {
   height: 50px;
   background-color: #688e72;
   color: white;
-  /* margin-top: 10px; */
+  margin-top: auto;
   text-align: center;
-  position: sticky;
+  position: fixed;
   bottom: 0;
+}
+
+#footer button {
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  background-color: transparent;
 }
 
 #footer p {
@@ -144,7 +157,7 @@ a:focus-visible #homeIcon {
 
 /* Wallet */
 #wallet {
-  position: absolute;
+  position: fixed;
   width: 115px;
   height: 40px;
   border-radius: 20px;

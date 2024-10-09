@@ -3,6 +3,7 @@ body,
 #root {
 	height: fit-content;
 	margin: 0;
+	text-align: center;
 }
 
 #shop {
@@ -11,7 +12,6 @@ body,
 	flex-wrap: wrap;
 	position: relative;
 	width: 100%;
-	padding: 10px;
 	justify-content: space-evenly;
 	row-gap: 10px;
 }

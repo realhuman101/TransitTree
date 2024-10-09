@@ -1,4 +1,4 @@
-import '../assets/CSS/Shop.css'
+import styles from '../assets/CSS/Shop.module.css'
 import Wallet from '../assets/components/Wallet'
 
 import Coin from "../assets/images/Coin.svg"
@@ -99,15 +99,15 @@ const shopItems = [
 function Shop() {
 	const items = []
 	for (const item of shopItems)
-		items.push(<div className='shopItem'><img className='itemIcon' src={item.Icon}/><div className='costBox'><img className='coin' src={Coin}/><p>{item.Cost}</p></div>{item.Owned && <p className='owned'>Owned</p>}</div>)
+		items.push(<div className={styles.shopItem}><img className={styles.itemIcon} src={item.Icon}/><div className={styles.costBox}><img className={styles.coin} src={Coin}/><p>{item.Cost}</p></div>{item.Owned && <p className={styles.owned}>Owned</p>}</div>)
 
 	return (
 		<>
-			<Wallet/>
-			<h1>Shop</h1>
-			<div id="shop">
+			<h1 style={{'display': 'block', 'margin': 'none'}}>Shop</h1>
+			<div id={styles.shop}>
 				{items}
 			</div>
+			<Wallet/>
 		</>
 	)
 }

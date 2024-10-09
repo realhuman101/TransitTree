@@ -5,6 +5,7 @@
 	align-items: center;
 	padding: 10px;
 	height: calc(100% - 50px);
+	margin: auto;
 }
 
 #CO2text {
@@ -12,6 +13,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	margin-top: auto;
 }
 
 #CO2text h1 {
