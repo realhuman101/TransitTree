@@ -6,6 +6,10 @@
 	justify-content: space-evenly;
 }
 
+.tree {
+	margin-top: auto;
+}
+
 #viewForest {
 	margin: auto 0;
 	display: flex;
