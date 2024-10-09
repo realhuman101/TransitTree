@@ -3,7 +3,7 @@ import { useCookies } from 'react-cookie'
 import Wallet from '../assets/components/Wallet'
 import Tree from '../assets/images/Tree.svg'
 
-
+import switchPage from '../assets/switchPage';
 
 function ViewForest() {
 	const [cookies, setCookies] = useCookies(['coins', 'treesPlanted']);
@@ -23,6 +23,7 @@ function ViewForest() {
 			<div id="forest">
 				{forest}
 			</div>
+			<button id="shop" onClick={() => switchPage('Shop')}>Buy Items</button>
 		</>
 	)
 }

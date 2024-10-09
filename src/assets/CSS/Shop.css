@@ -1,0 +1,43 @@
+html,
+body,
+#root {
+	height: fit-content;
+	margin: 0;
+}
+
+#shop {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	position: relative;
+	width: 100%;
+	padding: 10px;
+	justify-content: space-evenly;
+	row-gap: 10px;
+}
+
+.shopItem {
+	width: 150px;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	border-radius: 10px;
+	color: #020202
+}
+
+.itemIcon {
+	width: 70px;
+	height: 70px;
+}
+
+.costBox {
+	
+}
+
+.coin {
+	width: 20px;
+	height: 20px;
+}

@@ -4,11 +4,16 @@ body {
   height: 100%;
   margin: 0;
   background-color: #e9ecdd;
+  padding-bottom: 0;
 }
 
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   box-sizing: border-box;
+}
+
+#root {
+  padding-bottom: 0;
 }
 
 /* General */
@@ -49,7 +54,7 @@ input[type=submit]:focus-visible {
 
 /* Footer */
 #footer {
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,9 +63,9 @@ input[type=submit]:focus-visible {
   height: 50px;
   background-color: #688e72;
   color: white;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   text-align: center;
-  position: absolute;
+  position: sticky;
   bottom: 0;
 }
 
