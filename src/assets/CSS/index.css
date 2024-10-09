@@ -43,7 +43,8 @@ input[type=submit]:focus-visible {
   height: 100%;
   background-color: #688e72;
   z-index: 9;
-  animation: slideUp 1100ms ease-in-out 170ms forwards;
+  animation: slideUp 1100ms ease-in-out 170ms;
+  animation-fill-mode: forwards;
 }
 
 /* Footer */
@@ -145,6 +146,7 @@ a:focus-visible #homeIcon {
     top: -100vh;
   }
   100% {
+    top: -100vh;
     display: none;
   }
 }
@@ -157,6 +159,7 @@ a:focus-visible #homeIcon {
     top: 100vh;
   }
   100% {
+    top: 100vh;
     display: none;
   }
 }
