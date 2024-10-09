@@ -24,7 +24,7 @@ body,
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #fff;
+	background-color: #f9faf5;
 	border-radius: 10px;
 	color: #020202;
 	transition: transform 150ms ease-in-out;
