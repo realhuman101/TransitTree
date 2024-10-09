@@ -73,6 +73,8 @@ input[type=submit]:focus-visible {
   text-align: center;
   position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 #footer button {

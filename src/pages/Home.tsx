@@ -13,7 +13,7 @@ function Home() {
   setCookies("treesPlanted", cookies.CO2amt/100);
 
   return (
-    <>
+    <div id={styles.homepage}>
       <Wallet/>
       <div id={styles.CO2text}>
         <h1 id={styles.CO2tons}>{cookies.CO2amt} Tons</h1>
@@ -30,7 +30,7 @@ function Home() {
           window.location.href = '#/TransitTree/ViewForest/'
         }}>View Forest</button>
       </div>
-    </>
+    </div>
   )
 }
 
