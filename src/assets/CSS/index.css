@@ -139,10 +139,10 @@ a:focus-visible #homeIcon {
 
 /* Wallet */
 #wallet {
-  display: absolute;
-  width: 100px;
-  height: 50px;
-  border-radius: 25px;
+  position: absolute;
+  width: 115px;
+  height: 40px;
+  border-radius: 20px;
   background-color: #fff;
   color: #020202;
   font-weight: 500;
@@ -150,6 +150,24 @@ a:focus-visible #homeIcon {
   padding: 2px;
   top: 0;
   right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: right;
+}
+
+#wallet img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#wallet p {
+  position: absolute;
+  right: 0;
+  margin: 10px;
 }
 
 /* Keyframes */
