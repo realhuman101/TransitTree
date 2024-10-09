@@ -28,6 +28,9 @@ function Home() {
           <button onClick={() => {
             window.location.href = '#/TransitTree/ViewForest/'
           }}>View Forest</button>
+          <button onClick={() => {
+            window.location.href = '#/TransitTree/Shop/'
+          }}>Buy Items</button>
         </div>
         <Wallet/>
     </div>

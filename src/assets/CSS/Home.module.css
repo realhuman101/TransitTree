@@ -28,6 +28,7 @@ button {
 	flex-direction: column;
 	height: 100px;
 	justify-content: space-between;
+	gap: 5px;
 }
 
 #homepage {
