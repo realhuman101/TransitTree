@@ -72,7 +72,7 @@ function RoutePlan() {
 
 					<label className={styles.label}>From</label>
 					<input type="text" value={fromAddress} className={styles.input} id={styles.routePlanFrom} onFocus={() => setModifiedAddress(false)} onChange={handleInputChange} placeholder='Starting Location'/>
-					{fromSuggestions.length > 0 && (
+					{(fromSuggestions.length > 0 && !modifiedAddress) && (
 						<ul className={styles.suggestionBox}>
 						{fromSuggestions.map((suggestion, index) => (
 							<li
@@ -88,7 +88,7 @@ function RoutePlan() {
 
 					<label className={styles.label}>To</label>
 					<input type="text" value={toAddress} className={styles.input} id={styles.routePlanTo} onFocus={() => setModifiedAddress(true)} onChange={handleInputChange} placeholder='Destination'/>
-					{toSuggestions.length > 0 && (
+					{(toSuggestions.length > 0 && modifiedAddress) && (
 						<ul className={styles.suggestionBox}>
 						{toSuggestions.map((suggestion, index) => (
 							<li
