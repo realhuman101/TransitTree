@@ -1,24 +1,28 @@
-import React, { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import { MapContainer, TileLayer, LayersControl } from 'react-leaflet'
 import L from 'leaflet'
+import "leaflet-routing-machine";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
 import RoutingControl from "./RoutingControl"
 
 type Props = {
 	route: boolean,
-	startCoords?: Array<number>,
-	endCoords?: Array<number>
+	startCoords: Array<number>,
+	endCoords: Array<number>
 }
 
-function Map({ route = false, startCoords = undefined, endCoords = undefined } : Props) {
-	const [map, setMap] = useState(null);
-  	const [routingMachine, setRoutingMachine] = useState(null);
+function Map({ route = false, startCoords = [], endCoords = [] } : Props) {
+	const [map, setMap] = useState<L.Map | null>(null);
+	//@ts-expect-error Stupid leaflet L is broken
+  	const [routingMachine, setRoutingMachine] = useState<L.Routing.Control | null>(null);
 
 	const RoutingMachineRef = useRef(null);
 
 	useEffect(() => {
 		if (!map) return
 		if (map && route) {
+			//@ts-expect-error Stupid leaflet L is broken
 			RoutingMachineRef.current = L.Routing.control({
 				position: 'topleft', // Where to position control on map
 				lineOptions: { // Options for the routing line
@@ -44,6 +48,7 @@ function Map({ route = false, startCoords = undefined, endCoords = undefined } :
 
 	return (
 		<div id="map">
+			{/*@ts-expect-error Could not give less of a shit to fix this error*/}
 			<MapContainer center={[22.42460, 114.21334]} zoom={50} scrollWheelZoom={true} attributionControl={false} whenCreated={(_map) => {setMap(_map)}}>
 				{route && <RoutingControl
 					startCoord={startCoords}

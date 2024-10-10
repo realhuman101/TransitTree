@@ -6,20 +6,24 @@ import styles from'../assets/CSS/RoutePlan.module.css';
 import Map from '../assets/components/Map';
 import useDebounce from '../assets/scripts/useDebounce';
 
+interface Suggestion {
+	display_name: string;
+}
+
 function RoutePlan() {
 	const [modifiedAddress, setModifiedAddress] = useState(false); // false = from, true = to
 
 	const [fromAddress, setFromAddress] = useState("");
 	const [toAddress, setToAddress] = useState("");
 
-  	const [fromSuggestions, setFromSuggestions] = useState([]);
-  	const [toSuggestions, setToSuggestions] = useState([]);
+  	const [fromSuggestions, setFromSuggestions] = useState<Array<Suggestion>>([]);
+  	const [toSuggestions, setToSuggestions] = useState<Array<Suggestion>>([]);
 
 	const [routePlanned, setRoutePlanned] = useState(false);
 
 	const debounceDelay = 700;
-	const debounceFrom = useDebounce(fromAddress, debounceDelay);
-	const debounceTo = useDebounce(toAddress, debounceDelay);
+	const debounceFrom = useDebounce<string>(fromAddress, debounceDelay);
+	const debounceTo = useDebounce<string>(toAddress, debounceDelay);
 
 	useEffect(() => {
 		if (debounceFrom.length > 2)
@@ -31,7 +35,7 @@ function RoutePlan() {
 			fetchSuggestions(debounceTo, true)
 	}, [debounceTo]);
 
-	const handleInputChange = (e) => {
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (modifiedAddress)
 			setToAddress(e.target.value);
 		else
@@ -50,7 +54,7 @@ function RoutePlan() {
 			setFromSuggestions(data);
 	};
 	
-	const handleSuggestionClick = (suggestion) => {
+	const handleSuggestionClick = (suggestion: Suggestion) => {
 		if (modifiedAddress) {
 			setToAddress(suggestion.display_name);
 			setToSuggestions([]);

@@ -1,4 +1,3 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 
@@ -14,7 +13,7 @@ import Footer from './assets/components/Footer.tsx'
 import Loading from './assets/components/Loading.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <>
     <HashRouter basename='/TransitTree'>
       <Routes>
         <Route index element={<Home/>}/>
@@ -26,5 +25,5 @@ createRoot(document.getElementById('root')!).render(
     <Footer/>
     <Loading/>
     </HashRouter>
-  </StrictMode>,
+  </>,
 )

@@ -16,6 +16,7 @@ const RoutingControl = ({ startCoord, endCoord }: Props) => {
 	useEffect(() => {
 	  if (!map) return;
   
+	  //@ts-expect-error Stupid leaflet L is broken
 	  const routingControl = L.Routing.control({
 		waypoints: [
 		  L.latLng(startCoord[0], startCoord[1]),
@@ -27,7 +28,7 @@ const RoutingControl = ({ startCoord, endCoord }: Props) => {
 		},		
 	  }).addTo(map);
   
-	  return () => map.removeControl(routingControl);
+	  return () => {map.removeControl(routingControl)};
 	}, [map, startCoord, endCoord]);
   
 	return null;
