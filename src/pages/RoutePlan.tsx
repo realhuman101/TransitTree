@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+
 import styles from'../assets/CSS/RoutePlan.module.css';
 import Map from '../assets/components/Map';
+import useDebounce from '../assets/scripts/useDebounce';
 
 function RoutePlan() {
 	const [modifiedAddress, setModifiedAddress] = useState(false); // false = from, true = to
@@ -15,26 +17,34 @@ function RoutePlan() {
 
 	const [routePlanned, setRoutePlanned] = useState(false);
 
-	const handleInputChange = (e) => {
-		console.log(modifiedAddress)
+	const debounceDelay = 700;
+	const debounceFrom = useDebounce(fromAddress, debounceDelay);
+	const debounceTo = useDebounce(toAddress, debounceDelay);
 
-		if (e.target.value.length > 2) {
-		  	fetchSuggestions(e.target.value);
-		} else {
-			if (modifiedAddress)
-		  		setToSuggestions([]);
-			else
-				setFromSuggestions([]);
-		}
+	useEffect(() => {
+		if (debounceFrom.length > 2)
+			fetchSuggestions(debounceFrom, false)
+	}, [debounceFrom]);
+
+	useEffect(() => {
+		if (debounceTo.length > 2)
+			fetchSuggestions(debounceTo, true)
+	}, [debounceTo]);
+
+	const handleInputChange = (e) => {
+		if (modifiedAddress)
+			setToAddress(e.target.value);
+		else
+			setFromAddress(e.target.value);
 	};
 
-	const fetchSuggestions = async (query: string) => {
+	const fetchSuggestions = async (query: string, which: boolean) => {
 		const response = await fetch(
 			`https://nominatim.openstreetmap.org/search?format=json&q=${query}`
 		);
 		const data = await response.json();
 
-		if (modifiedAddress)
+		if (which)
 			setToSuggestions(data);
 		else
 			setFromSuggestions(data);
@@ -61,7 +71,7 @@ function RoutePlan() {
 					}}>
 
 					<label className={styles.label}>From</label>
-					<input type="text" value={fromAddress} className={styles.input} id={styles.routePlanFrom} onFocus={() => setModifiedAddress(true)} onChange={handleInputChange} placeholder='Starting Location'/>
+					<input type="text" value={fromAddress} className={styles.input} id={styles.routePlanFrom} onFocus={() => setModifiedAddress(false)} onChange={handleInputChange} placeholder='Starting Location'/>
 					{fromSuggestions.length > 0 && (
 						<ul className={styles.suggestionBox}>
 						{fromSuggestions.map((suggestion, index) => (
@@ -77,7 +87,7 @@ function RoutePlan() {
 					)}
 
 					<label className={styles.label}>To</label>
-					<input type="text" value={fromAddress} className={styles.input} id={styles.routePlanTo} onFocus={() => setModifiedAddress(false)} onChange={handleInputChange} placeholder='Destination'/>
+					<input type="text" value={toAddress} className={styles.input} id={styles.routePlanTo} onFocus={() => setModifiedAddress(true)} onChange={handleInputChange} placeholder='Destination'/>
 					{toSuggestions.length > 0 && (
 						<ul className={styles.suggestionBox}>
 						{toSuggestions.map((suggestion, index) => (

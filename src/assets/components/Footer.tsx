@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
 import Home from '../images/Home.svg'
-import switchPage from '../switchPage';
+import switchPage from '../scripts/switchPage';
 
 function Footer() {
 	const location = useLocation().pathname;

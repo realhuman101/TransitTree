@@ -7,7 +7,7 @@ import Tree13 from "../assets/images/shop/Tree13.svg"
 import Tree14 from "../assets/images/shop/Tree14.svg"
 import Tree15 from "../assets/images/shop/Tree15.svg"
 
-import switchPage from '../assets/switchPage';
+import switchPage from '../assets/scripts/switchPage';
 
 function ViewForest() {
 	const [cookies, setCookies] = useCookies(['coins', 'treesPlanted']);
