@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import styles from'../assets/CSS/RoutePlan.module.css';
+import Map from '../assets/components/Map';
 
 function RoutePlan() {
 	const [routePlanned, setRoutePlanned] = useState(false);
@@ -23,6 +24,8 @@ function RoutePlan() {
 				</form>
 			</div>
 			<div id={styles.map}>
+
+			<Map/>
 
 			</div>
 			{routePlanned && <button onClick={() => {

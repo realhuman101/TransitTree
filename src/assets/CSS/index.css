@@ -229,3 +229,19 @@ a:focus-visible #homeIcon {
   }
 }
 
+/* Maps */
+.gmnoprint a, .gmnoprint span {
+  display:none;
+}
+
+.gmnoprint div {
+  background:none !important;
+}
+
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white2.png"], a[href^="http://maps.google.com/maps"]{
+  display:none !important;
+}
+
+#map {
+  
+}
