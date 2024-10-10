@@ -28,7 +28,7 @@ function RoutePlan() {
 			<Map/>
 
 			</div>
-			{routePlanned && <button onClick={() => {
+			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {
 				setRoutePlanned(false);
 				withReactContent(Swal).fire({
 					title: "Another tree has been planted!",
@@ -37,7 +37,7 @@ function RoutePlan() {
 					color: "#020202",
 					background: "#e9ecdd"
 				})
-			}}>Use Route</button>}
+			}}>Use Route</button>
 		</div>
 	)
 }

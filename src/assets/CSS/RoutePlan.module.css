@@ -54,3 +54,7 @@
 #submit {
 	margin: 0 auto
 }
+
+.hiddenButton {
+	visibility: hidden;
+}
