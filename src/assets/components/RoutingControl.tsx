@@ -7,10 +7,20 @@ import "leaflet/dist/leaflet.css";
 
 type Props = {
 	startCoord: Array<number>,
-	endCoord: Array<number>
+	endCoord: Array<number>,
+	setMiles: (dist: number) => void
 }
 
-const RoutingControl = ({ startCoord, endCoord }: Props) => {
+interface RoutingEvent {
+	routes: Array<{
+		summary: {
+		totalDistance: number; // Distance in meters
+		totalTime: number; // Total time for the route in seconds
+		};
+	}>;
+}  
+
+const RoutingControl = ({ startCoord, endCoord, setMiles }: Props) => {
 	const map = useMap();
   
 	useEffect(() => {
@@ -26,7 +36,12 @@ const RoutingControl = ({ startCoord, endCoord }: Props) => {
 		lineOptions: {
 			styles: [{ color: '#61c273', weight: 6 }], // Customizing the route color and width
 		},		
-	  }).addTo(map);
+	  }).on('routesfound', function (e: RoutingEvent) {
+        const routes = e.routes;
+        const summary = routes[0].summary;
+        const distance = summary.totalDistance;
+        setMiles(distance);
+      }).addTo(map);
   
 	  return () => {map.removeControl(routingControl)};
 	}, [map, startCoord, endCoord]);

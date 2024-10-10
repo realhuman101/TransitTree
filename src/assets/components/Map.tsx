@@ -9,10 +9,11 @@ import RoutingControl from "./RoutingControl"
 type Props = {
 	route: boolean,
 	startCoords: Array<number>,
-	endCoords: Array<number>
+	endCoords: Array<number>,
+	setMiles: (distance: number) => void
 }
 
-function Map({ route = false, startCoords = [], endCoords = [] } : Props) {
+function Map({ setMiles, route = false, startCoords = [], endCoords = [] } : Props) {
 	const [map, setMap] = useState<L.Map | null>(null);
 	//@ts-expect-error Stupid leaflet L is broken
   	const [routingMachine, setRoutingMachine] = useState<L.Routing.Control | null>(null);
@@ -53,7 +54,7 @@ function Map({ route = false, startCoords = [], endCoords = [] } : Props) {
 				{route && <RoutingControl
 					startCoord={startCoords}
 					endCoord={endCoords}
-					
+					setMiles={setMiles}
 				/>}
 				
 				<LayersControl>

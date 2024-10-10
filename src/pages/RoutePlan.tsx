@@ -5,6 +5,7 @@ import withReactContent from 'sweetalert2-react-content';
 import styles from'../assets/CSS/RoutePlan.module.css';
 import Map from '../assets/components/Map';
 import useDebounce from '../assets/scripts/useDebounce';
+import carbonEmissionCalc from '../assets/scripts/carbonEmissionCalc';
 
 interface Suggestion {
 	display_name: string;
@@ -13,6 +14,8 @@ interface Suggestion {
 }
 
 function RoutePlan() {
+	const [distance, setDistance] = useState<number>(0);
+	
 	const [modifiedAddress, setModifiedAddress] = useState(false); // false = from, true = to
 
 	const [fromAddress, setFromAddress] = useState("");
@@ -119,7 +122,7 @@ function RoutePlan() {
 			</div>
 			<div id={styles.map}>
 
-			<Map route={routePlanned} startCoords={startCoord} endCoords={endCoord}/>
+			<Map route={routePlanned} startCoords={startCoord} endCoords={endCoord} setMiles={setDistance}/>
 
 			</div>
 			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {
@@ -132,7 +135,7 @@ function RoutePlan() {
 				setRoutePlanned(false);
 				withReactContent(Swal).fire({
 					title: "Another tree has been planted!",
-					text: "Successfully prevented around 1,342 grams of CO2 being emitted into the environment!",
+					text: `Successfully prevented around ${carbonEmissionCalc(distance).toLocaleString()} grams of CO2 being emitted into the environment!`,
 					icon: "success",
 					color: "#020202",
 					background: "#e9ecdd"
