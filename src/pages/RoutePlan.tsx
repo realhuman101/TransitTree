@@ -25,7 +25,7 @@ function RoutePlan() {
 			</div>
 			<div id={styles.map}>
 
-			<Map/>
+			<Map route={true} startCoords={[22.429681, 114.208412]} endCoords={[22.420039, 114.211815]}/>
 
 			</div>
 			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {

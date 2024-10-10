@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from "react"
 import { MapContainer, TileLayer, LayersControl } from 'react-leaflet'
 import L from 'leaflet'
 
+import RoutingControl from "./RoutingControl"
+
 type Props = {
 	route: boolean,
 	startCoords?: Array<number>,
@@ -43,6 +45,12 @@ function Map({ route = false, startCoords = undefined, endCoords = undefined } :
 	return (
 		<div id="map">
 			<MapContainer center={[22.42460, 114.21334]} zoom={50} scrollWheelZoom={true} attributionControl={false} whenCreated={(_map) => {setMap(_map)}}>
+				{route && <RoutingControl
+					startCoord={startCoords}
+					endCoord={endCoords}
+					
+				/>}
+				
 				<LayersControl>
 					<LayersControl.BaseLayer checked name="Map">
 						<TileLayer
