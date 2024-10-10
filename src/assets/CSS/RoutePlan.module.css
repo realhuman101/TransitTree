@@ -58,3 +58,34 @@
 .hiddenButton {
 	visibility: hidden;
 }
+
+/* Suggesitons */
+.suggestionBox {
+	list-style-type: none;
+	padding: 0px;
+	position: absolute;
+	height: fit-content;
+	width: inherit;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+.suggestion {
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+	opacity: 1;
+	transition: opacity 150ms ease-in-out transform 150ms ease-in-out;
+	font-size: 10px;
+}
+
+.suggestion:hover,
+.suggestion:focus,
+.suggestion:focus-within {
+	cursor: pointer;
+	opacity: 0.7;
+	transform: scale(1.05);
+}

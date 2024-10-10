@@ -1,31 +1,103 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import styles from'../assets/CSS/RoutePlan.module.css';
 import Map from '../assets/components/Map';
 
 function RoutePlan() {
+	const [modifiedAddress, setModifiedAddress] = useState(false); // false = from, true = to
+
+	const [fromAddress, setFromAddress] = useState("");
+	const [toAddress, setToAddress] = useState("");
+
+  	const [fromSuggestions, setFromSuggestions] = useState([]);
+  	const [toSuggestions, setToSuggestions] = useState([]);
+
 	const [routePlanned, setRoutePlanned] = useState(false);
+
+	const handleInputChange = (e) => {
+		console.log(modifiedAddress)
+
+		if (e.target.value.length > 2) {
+		  	fetchSuggestions(e.target.value);
+		} else {
+			if (modifiedAddress)
+		  		setToSuggestions([]);
+			else
+				setFromSuggestions([]);
+		}
+	};
+
+	const fetchSuggestions = async (query: string) => {
+		const response = await fetch(
+			`https://nominatim.openstreetmap.org/search?format=json&q=${query}`
+		);
+		const data = await response.json();
+
+		if (modifiedAddress)
+			setToSuggestions(data);
+		else
+			setFromSuggestions(data);
+	};
+	
+	const handleSuggestionClick = (suggestion) => {
+		if (modifiedAddress) {
+			setToAddress(suggestion.display_name);
+			setToSuggestions([]);
+		} else {
+			setFromAddress(suggestion.display_name);
+			setFromSuggestions([]);
+		}
+	};
 
 	return (
 		<div id={styles.routePlanFull}>
 			<div id={styles.routePlan}>
 				<h1>Plan Your Route</h1>
+
 				<form id={styles.RoutePlannerForm} onSubmit={(e) => { 
 						e.preventDefault(); 
 						setRoutePlanned(true);
 					}}>
 
 					<label className={styles.label}>From</label>
-					<input type="text" className={styles.input} id={styles.routePlanFrom} placeholder='Starting Location'/>
+					<input type="text" value={fromAddress} className={styles.input} id={styles.routePlanFrom} onFocus={() => setModifiedAddress(true)} onChange={handleInputChange} placeholder='Starting Location'/>
+					{fromSuggestions.length > 0 && (
+						<ul className={styles.suggestionBox}>
+						{fromSuggestions.map((suggestion, index) => (
+							<li
+							key={index}
+							onClick={() => {setModifiedAddress(true);handleSuggestionClick(suggestion)}}
+							className={styles.suggestion}
+							>
+							{suggestion.display_name}
+							</li>
+						))}
+						</ul>
+					)}
+
 					<label className={styles.label}>To</label>
-					<input type="text" className={styles.input} id={styles.routePlanTo} placeholder='Destination'/>
+					<input type="text" value={fromAddress} className={styles.input} id={styles.routePlanTo} onFocus={() => setModifiedAddress(false)} onChange={handleInputChange} placeholder='Destination'/>
+					{toSuggestions.length > 0 && (
+						<ul className={styles.suggestionBox}>
+						{toSuggestions.map((suggestion, index) => (
+							<li
+							key={index}
+							onClick={() => {setModifiedAddress(false);handleSuggestionClick(suggestion)}}
+							className={styles.suggestion}
+							>
+							{suggestion.display_name}
+							</li>
+						))}
+						</ul>
+					)}
+
 					<input id={styles.submit} type="submit" value="Find Fastest Route" />
 				</form>
 			</div>
 			<div id={styles.map}>
 
-			<Map route={true} startCoords={[22.429681, 114.208412]} endCoords={[22.420039, 114.211815]}/>
+			<Map route={routePlanned} startCoords={[22.429681, 114.208412]} endCoords={[22.420039, 114.211815]}/>
 
 			</div>
 			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {
