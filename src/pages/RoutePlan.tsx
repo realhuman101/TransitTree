@@ -123,6 +123,12 @@ function RoutePlan() {
 
 			</div>
 			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {
+				setFromAddress('');
+				setToAddress('');
+				setFromSuggestions([]);
+				setToSuggestions([]);
+				setStartCoords([]);
+				setEndCoords([]);
 				setRoutePlanned(false);
 				withReactContent(Swal).fire({
 					title: "Another tree has been planted!",
