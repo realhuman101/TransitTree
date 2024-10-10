@@ -7,8 +7,9 @@ import Tree from '../assets/images/Tree.svg'
 function Home() {
   const [cookies, setCookies] = useCookies(['CO2amt', 'treesPlanted']);
 
-  if (cookies.CO2amt == undefined)
+  if (cookies.CO2amt == undefined) {
     setCookies("CO2amt", 500);
+  }
 
   setCookies("treesPlanted", cookies.CO2amt/100);
 

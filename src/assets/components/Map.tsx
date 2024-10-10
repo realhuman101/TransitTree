@@ -1,10 +1,12 @@
-import { MapContainer, TileLayer, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 function Map() {
   return (
 	<div id="map">
-		<MapContainer zoom={13} scrollWheelZoom={false}>
-
+		<MapContainer center={[22.42460, 114.21334]} zoom={50} scrollWheelZoom={true} attributionControl={false}>
+			<TileLayer
+				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+			/>
 		</MapContainer>
 	</div>
   )
