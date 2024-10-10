@@ -8,6 +8,8 @@ import useDebounce from '../assets/scripts/useDebounce';
 
 interface Suggestion {
 	display_name: string;
+	lat: number;
+	lon: number;
 }
 
 function RoutePlan() {
@@ -20,6 +22,8 @@ function RoutePlan() {
   	const [toSuggestions, setToSuggestions] = useState<Array<Suggestion>>([]);
 
 	const [routePlanned, setRoutePlanned] = useState(false);
+	const [startCoord, setStartCoords] = useState<Array<number>>([]);
+  	const [endCoord, setEndCoords] = useState<Array<number>>([]);
 
 	const debounceDelay = 700;
 	const debounceFrom = useDebounce<string>(fromAddress, debounceDelay);
@@ -58,9 +62,13 @@ function RoutePlan() {
 		if (modifiedAddress) {
 			setToAddress(suggestion.display_name);
 			setToSuggestions([]);
+			//@ts-expect-error its 3AM im not assed to fix this
+			setEndCoords([parseFloat(suggestion.lat),parseFloat(suggestion.lon)]);
 		} else {
 			setFromAddress(suggestion.display_name);
 			setFromSuggestions([]);
+			//@ts-expect-error its 3AM im not assed to fix this
+			setStartCoords([parseFloat(suggestion.lat),parseFloat(suggestion.lon)]);
 		}
 	};
 
@@ -111,7 +119,7 @@ function RoutePlan() {
 			</div>
 			<div id={styles.map}>
 
-			<Map route={routePlanned} startCoords={[22.429681, 114.208412]} endCoords={[22.420039, 114.211815]}/>
+			<Map route={routePlanned} startCoords={startCoord} endCoords={endCoord}/>
 
 			</div>
 			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {
