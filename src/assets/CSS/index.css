@@ -55,11 +55,11 @@ input[type=submit]:focus-visible {
 }
 
 .slide-down {
-  animation: slideDown 1100ms ease-in-out 150ms forwards !important;
+  animation: slideDown 500ms ease-in-out forwards !important;
 }
 
 .slide-up {
-  animation: slideUp 1100ms ease-in-out forwards !important;
+  animation: slideUp 500ms ease-in-out 150ms forwards !important;
 }
 
 /* Footer */
@@ -232,6 +232,8 @@ a:focus-visible #homeIcon {
 
 @keyframes slideDown {
   0% {
+    opacity: 0;
+    display: none;
     top: 0;
     height: 0;
     z-index: 99999;

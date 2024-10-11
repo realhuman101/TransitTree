@@ -5,13 +5,14 @@ export default function SwitchPage() {
 
 	const pageTransition = (pageName: string) => {
 		setIsLoading(true);
-		window.location.href = "#/TransitTree/" + pageName + "/";
-		if (pageName == '')
-			window.location.href = "#/TransitTree/";
-
+		
 		setTimeout(() => {
+			window.location.href = "#/TransitTree/" + pageName + "/";
+			if (pageName == '')
+				window.location.href = "#/TransitTree/";
+
 			setIsLoading(false);
-		}, 1100 + 150);
+		}, 500 + 100);
 	}
 
 	return pageTransition;
