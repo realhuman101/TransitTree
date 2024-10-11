@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useCookies } from 'react-cookie'
 import styles from '../assets/CSS/ViewForest.module.css'
 
@@ -17,24 +18,27 @@ function ViewForest() {
 	if (cookies.treesPlanted == undefined)
 		setCookies("treesPlanted", 15);
 
-	const forest = [];
-	for (let i = 0; i < cookies.treesPlanted; i++) {
-		const size = 50 + Math.random() * (200 - 50); 
-		const treeType = Math.floor(Math.random() * 4);
-		const left = Math.random() * 50 + "%";
-		// const topVal = Math.random() * 50; 
-		// const top = topVal + "%";
-		// const zIndex = Math.floor(topVal/10);
+	const forest = useRef<JSX.Element[]>([]);
 
-		forest.push(
-			<img
-				className={styles.tree}
-				style={{ width: size + "px", height: size + "px", left, bottom: 0 }}
-				src={trees[treeType]}
-				alt="Tree"
-				key={i}
-			/>
-		);
+	if (forest.current.length == 0) {
+		for (let i = 0; i < cookies.treesPlanted; i++) {
+			const size = 50 + Math.random() * (200 - 50); 
+			const treeType = Math.floor(Math.random() * 4);
+			const left = Math.random() * 50 + "%";
+			// const topVal = Math.random() * 50; 
+			// const top = topVal + "%";
+			// const zIndex = Math.floor(topVal/10);
+
+			forest.current.push(
+				<img
+					className={styles.tree}
+					style={{ width: size + "px", height: size + "px", left, bottom: 0 }}
+					src={trees[treeType]}
+					alt="Tree"
+					key={i}
+				/>
+			);
+		}
 	}
 
 	return (
