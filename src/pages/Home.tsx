@@ -27,14 +27,14 @@ function Home() {
 			<img src={Tree} width='100px'/>
 			<h3>{cookies.treesPlanted} Trees Planted</h3>
 			<div id={styles.buttons}>
-				<button onClick={() => {
+				<button className={styles.button} onClick={() => {
 					pageTransition('RoutePlan');
 				}}>Plan New Route</button>
 				
-				<button onClick={() => {
+				<button className={styles.button} onClick={() => {
 					pageTransition('ViewForest');
 				}}>View Forest</button>
-				<button onClick={() => {
+				<button className={styles.button} onClick={() => {
 					pageTransition('Shop');
 				}}>Buy Items</button>
 			</div>

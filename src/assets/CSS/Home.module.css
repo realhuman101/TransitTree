@@ -18,17 +18,18 @@
 	color: #000;
 }
 
-button {
+.button {
 	font-size: 17px;
 	font-weight: 700 !important;
+	width: 100%;
 }
 
 #buttons {
 	display: flex;
 	flex-direction: column;
-	height: 100px;
+	height: fit-content;
 	justify-content: space-between;
-	gap: 5px;
+	gap: 10px;
 }
 
 #homepage {

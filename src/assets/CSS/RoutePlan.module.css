@@ -100,5 +100,10 @@
 
 #disabledCheck input[type="checkbox"] {
 	accent-color: #74992e;
-	border: none;
+	/* border: solid white;
+	box-shadow: none;
+	appearance: none;
+	background-color: #fff;
+	width: 20px;
+	height: 20px; */
 }
