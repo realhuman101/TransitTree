@@ -4,9 +4,11 @@ import Wallet from '../assets/components/Wallet';
 import styles from '../assets/CSS/Home.module.css'
 import Tree from '../assets/images/Tree.svg'
 import { useEffect } from 'react';
+import SwitchPage from '../assets/scripts/switchPage';
 
 function Home() {
 	const [cookies, setCookies] = useCookies(['CO2amt', 'treesPlanted']);
+	const pageTransition = SwitchPage();
 
 	useEffect(() => {
 		if (cookies.CO2amt == undefined) {
@@ -26,14 +28,14 @@ function Home() {
 			<h3>{cookies.treesPlanted} Trees Planted</h3>
 			<div id={styles.buttons}>
 				<button onClick={() => {
-					window.location.href = '#/TransitTree/RoutePlan/'
+					pageTransition('RoutePlan');
 				}}>Plan New Route</button>
 				
 				<button onClick={() => {
-					window.location.href = '#/TransitTree/ViewForest/'
+					pageTransition('ViewForest');
 				}}>View Forest</button>
 				<button onClick={() => {
-					window.location.href = '#/TransitTree/Shop/'
+					pageTransition('Shop');
 				}}>Buy Items</button>
 			</div>
 			<Wallet/>

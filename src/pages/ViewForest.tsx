@@ -7,9 +7,10 @@ import Tree13 from "../assets/images/shop/Tree13.svg"
 import Tree14 from "../assets/images/shop/Tree14.svg"
 import Tree15 from "../assets/images/shop/Tree15.svg"
 
-import switchPage from '../assets/scripts/switchPage';
+import SwitchPage from '../assets/scripts/switchPage';
 
 function ViewForest() {
+	const pageTransition = SwitchPage();
 	const [cookies, setCookies] = useCookies(['coins', 'treesPlanted']);
 	const trees = [Tree, Tree13, Tree14, Tree15];
 
@@ -29,7 +30,7 @@ function ViewForest() {
 				<div id={styles.forest}>
 					{forest}
 				</div>
-				<button id={styles.shop} onClick={() => switchPage('Shop')}>Buy Items</button>
+				<button id={styles.shop} onClick={() => pageTransition('Shop')}>Buy Items</button>
 				<Wallet/>
 			</div>
 		</div>
