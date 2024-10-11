@@ -51,11 +51,11 @@ input[type=submit]:focus-visible {
   height: 100%;
   background-color: #688e72;
   z-index: 99999;
-  animation: slideUpInit 1100ms ease-in-out forwards;
+  /* animation: slideUpInit 1100ms ease-in-out forwards; */
 }
 
 .slide-down {
-  animation: slideDown 1100ms ease-in-out forwards !important;
+  animation: slideDown 1100ms ease-in-out 150ms forwards !important;
 }
 
 .slide-up {
@@ -232,14 +232,17 @@ a:focus-visible #homeIcon {
 
 @keyframes slideDown {
   0% {
-    display: block;
-    opacity: 1;
-    top:0;
+    top: 0;
+    height: 0;
     z-index: 99999;
   }
-  100% {
-    top: 100vh;
+  1% {
+    display: block;
     opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    height: 100vh;
     z-index: 99999;
   }
 }

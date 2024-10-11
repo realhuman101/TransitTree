@@ -11,7 +11,7 @@ export default function SwitchPage() {
 
 		setTimeout(() => {
 			setIsLoading(false);
-		}, 1100);
+		}, 1100 + 150);
 	}
 
 	return pageTransition;
