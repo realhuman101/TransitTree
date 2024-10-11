@@ -3,7 +3,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	margin-top: auto;
+	margin-top: 30px;
 }
 
 #CO2text h1 {
@@ -14,8 +14,14 @@
 
 #CO2tons {
 	font-weight: 700 !important;
-	font-size: 50px;
+	font-size: 70px;
 	color: #000;
+}
+
+#treeBox {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .button {
@@ -42,6 +48,6 @@
 	margin: auto;
 }
 
-#homepage * {
+/* #homepage * {
 	margin: auto;
-}
+} */
