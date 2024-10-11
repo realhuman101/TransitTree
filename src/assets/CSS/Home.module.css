@@ -24,6 +24,14 @@
 	gap: 10px;
 }
 
+#treeBox img {
+	margin: 0 auto;
+}
+
+#treeBox h3 {
+	font-size: 25px;
+}
+
 .button {
 	font-size: 17px;
 	font-weight: 700 !important;

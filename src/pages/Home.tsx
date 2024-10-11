@@ -22,7 +22,7 @@ function Home() {
 		<div id={styles.homepage}>
 			<div id={styles.CO2text}>
 				<h1 id={styles.CO2tons}>{(cookies.CO2amt).toLocaleString()}</h1>
-				<h1>Tons of Carbon Emissions Reduced</h1>
+				<h1>Kg of Carbon Emissions Reduced</h1>
 			</div>
 			<div id={styles.treeBox}>
 				<img src={Tree} width='150px'/>
