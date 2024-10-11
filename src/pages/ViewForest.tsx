@@ -45,7 +45,7 @@ function ViewForest() {
 		<div id={styles.container}>
 			<div id={styles.viewForest}>
 				<div id={styles.forest}>
-					{forest}
+					{forest.current}
 				</div>
 				<button id={styles.shop} onClick={() => pageTransition('Shop')}>Buy Items</button>
 				<Wallet/>

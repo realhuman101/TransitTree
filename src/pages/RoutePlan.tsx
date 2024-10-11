@@ -117,6 +117,10 @@ function RoutePlan() {
 						</ul>
 					)}
 
+					<div id={styles.disabledCheck}>
+						<input type="checkbox"/>
+						<label>I'm on a Wheelchair</label>
+					</div>
 					<input id={styles.submit} type="submit" value="Find Fastest Route" />
 				</form>
 			</div>

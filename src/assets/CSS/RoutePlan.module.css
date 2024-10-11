@@ -89,3 +89,16 @@
 	opacity: 0.7;
 	transform: scale(1.05);
 }
+
+#disabledCheck {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: auto;
+	padding: 5px;
+}
+
+#disabledCheck input[type="checkbox"] {
+	accent-color: #74992e;
+	border: none;
+}
