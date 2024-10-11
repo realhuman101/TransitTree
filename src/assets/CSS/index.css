@@ -249,6 +249,11 @@ a:focus-visible #homeIcon {
   }
 }
 
+/* Sweet Alert 2 */
+.swal2-confirm {
+  background-color: #688e72;
+}
+
 /* Maps */
 .gmnoprint a, .gmnoprint span {
   display:none;

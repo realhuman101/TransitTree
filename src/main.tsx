@@ -28,5 +28,5 @@ createRoot(document.getElementById('root')!).render(
       <Footer/>
       <Loading/>
     </HashRouter>
-  </LoadingProvider>,
+  </LoadingProvider>
 )

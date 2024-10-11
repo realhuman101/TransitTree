@@ -11,7 +11,7 @@ function Home() {
 	const pageTransition = SwitchPage();
 
 	useEffect(() => {
-		if (cookies.CO2amt == undefined) {
+		if (cookies.CO2amt == undefined || cookies.CO2amt < 500000) {
 			setCookies("CO2amt", 500000);
 		}
 
