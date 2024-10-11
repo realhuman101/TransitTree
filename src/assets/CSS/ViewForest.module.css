@@ -1,28 +1,36 @@
 #forest {
-	display: flex;
-	flex-direction: row;
 	position: relative;
-	width: 100%;
-	justify-content: space-evenly;
-}
-
-.tree {
-	margin-top: auto;
-}
-
-#viewForest {
-	margin: auto 0;
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	display: block;
+  }
+  
+  .tree {
+	position: absolute;
+	transition: transform 0.3s ease-in-out;
+  }
+  
+  /* .tree:hover {
+	transform: scale(1.1);
+  } */
+  
+  #viewForest {
+	margin: auto;
 	display: flex;
 	flex-direction: column;
-	position: relative;
-	width: 100%;
 	align-items: center;
-	height: fit-content;
-	gap: 20px;
-}
-
-#container {
-	height: 100%;
+	justify-content: center;
+  }
+  
+  #container {
+	height: 100vh;
 	display: flex;
 	justify-content: center;
-}
+	align-items: center;
+  }
+  
+  #shop {
+	margin-top: 20px;
+  }
+  

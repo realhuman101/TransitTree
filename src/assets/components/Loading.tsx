@@ -1,7 +1,12 @@
+import { useLoading } from "./LoadingContext";
+
+
 function Loading() {
-  return (
-	<div id="loading"></div>
-  )
+  const { isLoading } = useLoading();
+
+    return (
+      <div id="loading" className={isLoading ? 'slide-down' : 'slide-up'}></div>
+    )
 }
 
 export default Loading
