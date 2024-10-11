@@ -17,11 +17,24 @@ function ViewForest() {
 	if (cookies.treesPlanted == undefined)
 		setCookies("treesPlanted", 15);
 
-	const forest = []
+	const forest = [];
 	for (let i = 0; i < cookies.treesPlanted; i++) {
-		const size = 45 + Math.random()*(70-45);
-		const tree = Math.floor(Math.random()*3);
-		forest.push(<img className={styles.tree} width={size+"px"} height={size+"px"}  src={trees[tree]}/>)
+		const size = 50 + Math.random() * (200 - 50); 
+		const treeType = Math.floor(Math.random() * 4);
+		const left = Math.random() * 50 + "%";
+		// const topVal = Math.random() * 50; 
+		// const top = topVal + "%";
+		// const zIndex = Math.floor(topVal/10);
+
+		forest.push(
+			<img
+				className={styles.tree}
+				style={{ width: size + "px", height: size + "px", left, bottom: 0 }}
+				src={trees[treeType]}
+				alt="Tree"
+				key={i}
+			/>
+		);
 	}
 
 	return (
