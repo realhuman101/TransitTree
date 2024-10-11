@@ -6,6 +6,7 @@ import Home from './pages/Home.tsx'
 import RoutePlan from './pages/RoutePlan.tsx'
 import ViewForest from './pages/ViewForest.tsx'
 import Shop from './pages/Shop.tsx'
+import Leaderboard from './pages/Leaderboard.tsx'
 import './assets/CSS/index.css'
 
 // Components
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/RoutePlan' element={<RoutePlan/>}/>
         <Route path='/ViewForest' element={<ViewForest/>}/>
         <Route path='/Shop' element={<Shop/>}/>
+        <Route path='/Leaderboard' element={<Leaderboard/>}/>
       </Routes>
 
       <Footer/>

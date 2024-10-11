@@ -14,7 +14,7 @@ function Footer() {
 			<button onClick={() => pageTransition('RoutePlan')}><img id="homeIcon" width="30px" height="30px" color='#fff' src={Route}/></button>
 			<button onClick={() => pageTransition('ViewForest')}><img id="homeIcon" width="30px" height="30px" color='#fff' src={Forest}/></button>
 			<button onClick={() => pageTransition('Shop')}><img id="homeIcon" width="30px" height="30px" color='#fff' src={Shop}/></button>
-			<button onClick={() => pageTransition('')}><img id="homeIcon" width="30px" height="30px" color='#fff' src={Leaderboard}/></button>
+			<button onClick={() => pageTransition('Leaderboard')}><img id="homeIcon" width="30px" height="30px" color='#fff' src={Leaderboard}/></button>
 			{/* <p>TransitTree Demo</p> */}
 			<p id="footerCredit"><div>Made by <a href="https://realhuman101.github.io" target="_blank">Valentina Banner</a></div></p>
 		</div>
