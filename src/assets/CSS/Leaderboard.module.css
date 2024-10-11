@@ -1,0 +1,42 @@
+#board {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 75%;
+	margin: 0 auto;
+}
+
+.person {
+	background-color: rgb(253, 255, 247);
+	border-radius: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	padding: 5px;
+}
+
+.person div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border-bottom: 1px solid rgb(192, 192, 192);
+	margin: 0 auto;
+	padding: 5px;
+}
+
+.personStat {
+	font-weight: 700;
+	font-size: 21px;
+	margin: auto 0;
+	padding: 5px;
+}
+
+.personName {
+	font-weight: 700;
+	font-size: 19px;
+	width: calc(100% - 20px);
+}
+
+.self {
+	transform: scale(1.025);
+}
