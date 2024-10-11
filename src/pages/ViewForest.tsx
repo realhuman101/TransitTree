@@ -24,7 +24,7 @@ function ViewForest() {
 		for (let i = 0; i < cookies.treesPlanted; i++) {
 			const size = 50 + Math.random() * (200 - 50); 
 			const treeType = Math.floor(Math.random() * 4);
-			const left = Math.random() * 50 + "%";
+			const left = Math.random() * 70 + "%";
 			// const topVal = Math.random() * 50; 
 			// const top = topVal + "%";
 			// const zIndex = Math.floor(topVal/10);
@@ -42,7 +42,8 @@ function ViewForest() {
 	}
 
 	return (
-		<div id={styles.container}>
+		<div id={styles.forestContainer}>
+			<h1>Your Forest</h1>
 			<div id={styles.viewForest}>
 				<div id={styles.forest}>
 					{forest.current}
