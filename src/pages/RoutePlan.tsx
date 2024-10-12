@@ -16,7 +16,7 @@ interface Suggestion {
 
 function RoutePlan() {
 	const [distance, setDistance] = useState<number>(0);
-	const [cookies, setCookies] = useCookies(['treesPlanted', 'CO2amt']);
+	const [cookies, setCookies] = useCookies(['treesPlanted', 'CO2amt', 'coins']);
 
 	const [modifiedAddress, setModifiedAddress] = useState(false); // false = from, true = to
 
@@ -132,7 +132,7 @@ function RoutePlan() {
 
 					<div id={styles.disabledCheck}>
 						<input type="checkbox"/>
-						<label>I'm on a Wheelchair</label>
+						<label>I need accessible routes</label>
 					</div>
 					<input id={styles.submit} type="submit" value="Find Fastest Route" />
 				</form>
@@ -174,6 +174,7 @@ function RoutePlan() {
 
 				setCookies("CO2amt", newCO2);
 				setCookies("treesPlanted", newCO2/100000)
+				setCookies("coins", Math.floor((cookies.coins ? cookies.coins : 15) + newCO2/100000))
 			}}>Use Route</button>
 		</div>
 	)

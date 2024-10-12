@@ -34,7 +34,7 @@ function Leaderboard() {
 				<p className={styles.personStat}>#{i+1}</p>
 				<p className={styles.personName}>{item['Name']}</p>
 			</div>
-			<p className={styles.personTrees}><b>Trees Planted:</b> {item.Trees}</p>
+			<p className={styles.personTrees}><b>Trees Planted:</b> {Math.floor(item.Trees)}</p>
 		</div>
 	));
 
