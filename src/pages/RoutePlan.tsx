@@ -139,7 +139,7 @@ function RoutePlan() {
 				setRoutePlanned(false);
 				withReactContent(Swal).fire({
 					title: "Another tree has been planted!",
-					text: `Successfully prevented around ${carbonEmissionCalc(distance).toLocaleString()} grams of CO2 being emitted into the environment!`,
+					text: `Successfully prevented around ${carbonEmissionCalc(distance).toLocaleString()} kilograms of CO2 being emitted into the environment!`,
 					icon: "success",
 					color: "#020202",
 					background: "#e9ecdd"
