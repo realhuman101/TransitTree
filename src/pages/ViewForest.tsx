@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useCookies } from 'react-cookie'
 import styles from '../assets/CSS/ViewForest.module.css'
 
@@ -14,6 +14,7 @@ function ViewForest() {
 	const pageTransition = SwitchPage();
 	const [cookies, setCookies] = useCookies(['coins', 'treesPlanted']);
 	const trees = [Tree, Tree13, Tree14, Tree15];
+	const forestBox = useRef(null);
 
 	if (cookies.treesPlanted == undefined)
 		setCookies("treesPlanted", 15);
@@ -21,18 +22,25 @@ function ViewForest() {
 	const forest = useRef<JSX.Element[]>([]);
 
 	if (forest.current.length == 0) {
+		const boxSize = 350; // not assed to fix this
+		const lenScale = (boxSize ? boxSize : 350)/cookies.treesPlanted;
+		const midpoint = Math.floor(cookies.treesPlanted / 2);
+		const minSize = 70;
+		const maxSize = 200;
 		for (let i = 0; i < cookies.treesPlanted; i++) {
-			const size = 50 + Math.random() * (200 - 50); 
+			// const size = 50 + Math.random() * (200 - 50); 
+			const size = maxSize - (Math.abs(i - midpoint) * (maxSize - minSize) / midpoint)
 			const treeType = Math.floor(Math.random() * 4);
-			const left = Math.random() * 70 + "%";
+			// const left = Math.random() * 70 + "%";
+			const left = (i * lenScale) - size / 2 + (minSize/2);
 			// const topVal = Math.random() * 50; 
 			// const top = topVal + "%";
-			// const zIndex = Math.floor(topVal/10);
+			const zIndex = Math.ceil(Math.abs(i - midpoint));
 
 			forest.current.push(
 				<img
 					className={styles.tree}
-					style={{ width: size + "px", height: size + "px", left, bottom: 0 }}
+					style={{ width: size + "px", height: size + "px", left: left, bottom: 0, zIndex: zIndex }}
 					src={trees[treeType]}
 					alt="Tree"
 					key={i}
@@ -45,7 +53,7 @@ function ViewForest() {
 		<div id={styles.forestContainer}>
 			<h1>Your Forest</h1>
 			<div id={styles.viewForest}>
-				<div id={styles.forest}>
+				<div id={styles.forest} ref={forestBox}>
 					{forest.current}
 				</div>
 				<button id={styles.shop} onClick={() => pageTransition('Shop')}>Buy Items</button>

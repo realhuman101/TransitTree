@@ -10,10 +10,11 @@ type Props = {
 	route: boolean,
 	startCoords: Array<number>,
 	endCoords: Array<number>,
-	setMiles: (distance: number) => void
+	setMiles: (distance: number) => void,
+	mode: 'public' | 'private'
 }
 
-function Map({ setMiles, route = false, startCoords = [], endCoords = [] } : Props) {
+function Map({ setMiles, route = false, startCoords = [], endCoords = [], mode } : Props) {
 	const [map, setMap] = useState<L.Map | null>(null);
 	//@ts-expect-error Stupid leaflet L is broken
   	const [routingMachine, setRoutingMachine] = useState<L.Routing.Control | null>(null);
@@ -55,6 +56,7 @@ function Map({ setMiles, route = false, startCoords = [], endCoords = [] } : Pro
 					startCoord={startCoords}
 					endCoord={endCoords}
 					setMiles={setMiles}
+					mode={mode}
 				/>}
 				
 				<LayersControl>
@@ -63,6 +65,14 @@ function Map({ setMiles, route = false, startCoords = [], endCoords = [] } : Pro
 							url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
 						/>
 					</LayersControl.BaseLayer>
+
+					{mode === 'public' && (
+						<LayersControl.Overlay checked name="Public Transport">
+							<TileLayer
+								url="https://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png"
+							/>
+						</LayersControl.Overlay>
+					)}
 				</LayersControl>
 			</MapContainer>
 		</div>

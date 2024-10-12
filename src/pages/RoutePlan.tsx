@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
+// import Swal from 'sweetalert2';
+// import withReactContent from 'sweetalert2-react-content';
 
 import styles from'../assets/CSS/RoutePlan.module.css';
 import Map from '../assets/components/Map';
 import useDebounce from '../assets/scripts/useDebounce';
-import carbonEmissionCalc from '../assets/scripts/carbonEmissionCalc';
+// import carbonEmissionCalc from '../assets/scripts/carbonEmissionCalc';
 
 interface Suggestion {
 	display_name: string;
@@ -15,6 +15,7 @@ interface Suggestion {
 
 function RoutePlan() {
 	const [distance, setDistance] = useState<number>(0);
+	console.log(distance)
 	
 	const [modifiedAddress, setModifiedAddress] = useState(false); // false = from, true = to
 
@@ -138,7 +139,7 @@ function RoutePlan() {
                     onClick={() => setTab('private')}
                 >Private                </button>
             </div>
-			<Map route={routePlanned} startCoords={startCoord} endCoords={endCoord} setMiles={setDistance}/>
+			<Map route={routePlanned} startCoords={startCoord} endCoords={endCoord} setMiles={setDistance} mode={tab}/>
 
 			</div>
 			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {
@@ -149,13 +150,13 @@ function RoutePlan() {
 				setStartCoords([]);
 				setEndCoords([]);
 				setRoutePlanned(false);
-				withReactContent(Swal).fire({
-					title: "Another tree has been planted!",
-					text: `Successfully prevented around ${carbonEmissionCalc(distance).toLocaleString()} kilograms of CO2 being emitted into the environment!`,
-					icon: "success",
-					color: "#020202",
-					background: "#e9ecdd"
-				})
+				// withReactContent(Swal).fire({
+				// 	title: "Another tree has been planted!",
+				// 	text: `Successfully prevented around ${carbonEmissionCalc(distance).toLocaleString()} kilograms of CO2 being emitted into the environment!`,
+				// 	icon: "success",
+				// 	color: "#020202",
+				// 	background: "#e9ecdd"
+				// })
 			}}>Use Route</button>
 		</div>
 	)

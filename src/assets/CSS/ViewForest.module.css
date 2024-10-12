@@ -3,13 +3,23 @@
 	flex-direction: column;
 }
 
+#forestContainer h1 {
+	margin-top: 50px;
+}
+
 #forest {
 	position: relative;
-	width: 400px;
+	width: 350px;
 	height: 300px;
 	overflow: hidden;
 	display: block;
 	margin: 0 auto;
+}
+
+@media (max-width: 350px) {
+	#forest {
+		width: 100%;
+	}
 }
   
 .tree {
