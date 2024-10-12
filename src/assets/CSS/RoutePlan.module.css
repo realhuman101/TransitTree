@@ -107,3 +107,42 @@
 	width: 20px;
 	height: 20px; */
 }
+
+/* Tabs */
+.tabs {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%); 
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 1000; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.activeTab {
+    padding: 10px 20px;
+    background-color: #688e72;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px 4px 0 0;
+    margin-right: 5px;
+}
+
+.inactiveTab {
+    padding: 10px 20px;
+    background-color: #e9ecdd;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0;
+    margin-right: 5px;
+}
+
+.activeTab:hover,
+.inactiveTab:hover {
+    opacity: 0.8;
+}

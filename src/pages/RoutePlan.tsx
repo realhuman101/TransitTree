@@ -28,6 +28,8 @@ function RoutePlan() {
 	const [startCoord, setStartCoords] = useState<Array<number>>([]);
   	const [endCoord, setEndCoords] = useState<Array<number>>([]);
 
+	const [tab, setTab] = useState<'public' | 'private'>('public');
+
 	const debounceDelay = 700;
 	const debounceFrom = useDebounce<string>(fromAddress, debounceDelay);
 	const debounceTo = useDebounce<string>(toAddress, debounceDelay);
@@ -126,6 +128,16 @@ function RoutePlan() {
 			</div>
 			<div id={styles.map}>
 
+			<div className={styles.tabs}>
+                <button
+                    className={tab === 'public' ? styles.activeTab : styles.inactiveTab}
+                    onClick={() => setTab('public')}
+                >Public                </button>
+                <button
+                    className={tab === 'private' ? styles.activeTab : styles.inactiveTab}
+                    onClick={() => setTab('private')}
+                >Private                </button>
+            </div>
 			<Map route={routePlanned} startCoords={startCoord} endCoords={endCoord} setMiles={setDistance}/>
 
 			</div>
