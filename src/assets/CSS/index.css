@@ -268,10 +268,11 @@ img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white2.png"], a[hr
 }
 
 #map {
-  width: 100vw;
-  padding: 50px;
-  padding-bottom: 0;
+  width: calc(100vw - 50px);
+  padding: 0;
   height: 100%;
+  border-radius: 10px;
+  z-index: 5;
 }
 
 #map * { /* actual map element itself (not container) */

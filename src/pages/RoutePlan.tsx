@@ -138,18 +138,19 @@ function RoutePlan() {
 			</div>
 			<div id={styles.map}>
 
-			<div className={styles.tabs}>
-                <button
-                    className={tab === 'public' ? styles.activeTab : styles.inactiveTab}
-                    onClick={() => setTab('public')}
-                >Public                </button>
-                <button
-                    className={tab === 'private' ? styles.activeTab : styles.inactiveTab}
-                    onClick={() => setTab('private')}
-                >Private                </button>
-            </div>
-			<Map route={routePlanned} startCoords={startCoord} endCoords={endCoord} setMiles={setDistance} mode={tab}/>
-
+			<div id={styles.mapBox}>
+				<Map route={routePlanned} startCoords={startCoord} endCoords={endCoord} setMiles={setDistance} mode={tab}/>
+				<div className={styles.tabs}>
+					<button
+						className={tab === 'public' ? styles.activeTab : styles.inactiveTab}
+						onClick={() => setTab('public')}
+					>Public</button>
+					<button
+						className={tab === 'private' ? styles.activeTab : styles.inactiveTab}
+						onClick={() => setTab('private')}
+					>Private</button>
+				</div>
+			</div>
 			</div>
 			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {
 				setFromAddress('');

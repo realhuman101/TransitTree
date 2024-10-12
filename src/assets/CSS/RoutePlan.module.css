@@ -31,8 +31,13 @@
 	padding: 0 12px;
 }
 
-#map {
-	height: 50%;
+#mapBox {
+	height: 350px;
+	position: relative;
+	padding: 50px;
+	padding-bottom: 0;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 @media (min-width: 650px) {
@@ -49,6 +54,8 @@
 	padding: 0px;
 	height: calc(100% - 50px);
 	margin: auto;
+	margin-bottom: 0;
+	overflow: hidden;
 }
 
 #submit {
@@ -111,13 +118,13 @@
 /* Tabs */
 .tabs {
     position: absolute;
-    bottom: 60px;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%); 
     background: rgba(255, 255, 255, 0.8);
     padding: 10px 20px;
     border-radius: 8px;
-    z-index: 98; 
+    z-index: 1000; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	width: fit-content;
 	display: flex;
