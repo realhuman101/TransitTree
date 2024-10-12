@@ -21,12 +21,12 @@ function Home() {
 	return (
 		<div id={styles.homepage}>
 			<div id={styles.CO2text}>
-				<h1 id={styles.CO2tons}>{(cookies.CO2amt ? cookies.CO2amt : 500000).toLocaleString()}</h1>
+				<h1 id={styles.CO2tons}>{Math.floor(cookies.CO2amt ? cookies.CO2amt : 500000).toLocaleString()}</h1>
 				<h1>Kg of Carbon Emissions Reduced</h1>
 			</div>
 			<div id={styles.treeBox}>
 				<img src={Tree} width='150px'/>
-				<h3>{(cookies.treesPlanted ? cookies.treesPlanted : 500000).toLocaleString()} Trees Planted</h3>
+				<h3>{Math.floor(cookies.treesPlanted ? cookies.treesPlanted : 500000).toLocaleString()} Trees Planted</h3>
 			</div>
 			<div id={styles.buttons}>
 				<button className={styles.button} onClick={() => {

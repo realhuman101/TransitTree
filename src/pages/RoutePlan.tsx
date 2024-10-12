@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-// import Swal from 'sweetalert2';
-// import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 import styles from'../assets/CSS/RoutePlan.module.css';
 import Map from '../assets/components/Map';
 import useDebounce from '../assets/scripts/useDebounce';
-// import carbonEmissionCalc from '../assets/scripts/carbonEmissionCalc';
+import carbonEmissionCalc from '../assets/scripts/carbonEmissionCalc';
+import { useCookies } from 'react-cookie';
 
 interface Suggestion {
 	display_name: string;
@@ -15,8 +16,8 @@ interface Suggestion {
 
 function RoutePlan() {
 	const [distance, setDistance] = useState<number>(0);
-	console.log(distance)
-	
+	const [cookies, setCookies] = useCookies(['treesPlanted', 'CO2amt']);
+
 	const [modifiedAddress, setModifiedAddress] = useState(false); // false = from, true = to
 
 	const [fromAddress, setFromAddress] = useState("");
@@ -153,6 +154,8 @@ function RoutePlan() {
 			</div>
 			</div>
 			<button className={routePlanned ? "" : styles.hiddenButton} onClick={() => {
+				const CO2saved = carbonEmissionCalc(distance);
+				
 				setFromAddress('');
 				setToAddress('');
 				setFromSuggestions([]);
@@ -160,13 +163,17 @@ function RoutePlan() {
 				setStartCoords([]);
 				setEndCoords([]);
 				setRoutePlanned(false);
-				// withReactContent(Swal).fire({
-				// 	title: "Another tree has been planted!",
-				// 	text: `Successfully prevented around ${carbonEmissionCalc(distance).toLocaleString()} kilograms of CO2 being emitted into the environment!`,
-				// 	icon: "success",
-				// 	color: "#020202",
-				// 	background: "#e9ecdd"
-				// })
+				withReactContent(Swal).fire({
+					title: "Another tree has been planted!",
+					text: `Successfully prevented around ${CO2saved.toLocaleString()} kilograms of CO2 being emitted into the environment!`,
+					icon: "success",
+					color: "#020202",
+					background: "#e9ecdd"
+				})
+				const newCO2 = (cookies.CO2amt ? cookies.CO2amt : 500000) + CO2saved;
+
+				setCookies("CO2amt", newCO2);
+				setCookies("treesPlanted", newCO2/100000)
 			}}>Use Route</button>
 		</div>
 	)
