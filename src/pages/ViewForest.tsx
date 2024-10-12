@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useCookies } from 'react-cookie'
 import styles from '../assets/CSS/ViewForest.module.css'
 
