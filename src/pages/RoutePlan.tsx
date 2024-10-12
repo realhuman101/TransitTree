@@ -25,6 +25,8 @@ function RoutePlan() {
   	const [fromSuggestions, setFromSuggestions] = useState<Array<Suggestion>>([]);
   	const [toSuggestions, setToSuggestions] = useState<Array<Suggestion>>([]);
 
+	const [isSelectingSuggestion, setIsSelectingSuggestion] = useState(false);
+
 	const [routePlanned, setRoutePlanned] = useState(false);
 	const [startCoord, setStartCoords] = useState<Array<number>>([]);
   	const [endCoord, setEndCoords] = useState<Array<number>>([]);
@@ -46,10 +48,12 @@ function RoutePlan() {
 	}, [debounceTo]);
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (modifiedAddress)
-			setToAddress(e.target.value);
-		else
-			setFromAddress(e.target.value);
+		if (!isSelectingSuggestion) {
+			if (modifiedAddress)
+				setToAddress(e.target.value);
+			else
+				setFromAddress(e.target.value);
+		}
 	};
 
 	const fetchSuggestions = async (query: string, which: boolean) => {
@@ -65,6 +69,7 @@ function RoutePlan() {
 	};
 	
 	const handleSuggestionClick = (suggestion: Suggestion) => {
+		setIsSelectingSuggestion(true);
 		if (modifiedAddress) {
 			setToAddress(suggestion.display_name);
 			setToSuggestions([]);
@@ -76,6 +81,10 @@ function RoutePlan() {
 			//@ts-expect-error its 3AM im not assed to fix this
 			setStartCoords([parseFloat(suggestion.lat),parseFloat(suggestion.lon)]);
 		}
+
+		setFromSuggestions([]);
+		setToSuggestions([]);
+		setIsSelectingSuggestion(false);
 	};
 
 	return (
