@@ -19,12 +19,11 @@
 > [!NOTE]
 > Please note this is a **demo** and is not intended to be functional but rather intended to express and explain our project better.
 
-> This project is a submission to the final round of the [Imperial Hackathon HK](https://www.imperialhackathonhk.com/).
+> This project is the demo of the project TransitTree which participated in [Imperial Hackathon HK 2024](https://www.imperialhackathonhk.com/) and won 2nd place.
 
 TransitTree is an app aimed towards reducing carbon emissions by incentivising the use of public transport primarily through gamification. Additionally, we provide users with an efficient alternative, through the use of AI models we predict traffic patterns and outline the most efficient routes. By doing so, we not only prevent carbon emissions from private transportation but also allow for a faster and more efficient means of transportation.
 
 Feel free to access the project [here](https://realhuman101.github.io/TransitTree/).
-
 
 ## Contributing
 
